@@ -1,13 +1,6 @@
-install python
-https://www.python.org/downloads/
-update environment path fot python and its Script
-C:\Users\yourpcname\AppData\Local\Programs\Python\Python313\Scripts
-C:\Users\yourpcname\AppData\Local\Programs\Python\Python313
+docker hub: https://hub.docker.com/repository/docker/warhe8d/ai_review_sum/general
 
-install dependancies:
-pip install transformers torch fastapi uvicorn
+run on local terminal
+docker pull warhe8d/ai_review_sum
 
-run the file
-
-run the server
-python -m uvicorn summarizer:app --host 0.0.0.0 --port 8000
+docker run -p 8000:8000 warhe8d/ai_review_sum
