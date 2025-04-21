@@ -1,11 +1,20 @@
 # summarizer.py
 from transformers import pipeline
 from fastapi import FastAPI, Request
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
 summarizer = pipeline("summarization")
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allow all origins
+    allow_credentials=True,
+    allow_methods=["POST"],  # Allow only POST method
+    allow_headers=["*"],  # Allow all headers
+)
 
 class TextInput(BaseModel):
     text: str
